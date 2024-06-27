@@ -63,7 +63,14 @@ class TaskRoutes(databaseService: DatabaseService)(implicit ec: ExecutionContext
               rejectEmptyResponse {
                 complete(databaseService.getUser(id))
               }
-            }
+            } ~
+              put {
+                entity(as[User]) { user =>
+                  onSuccess(databaseService.updateUser(user)) { _ =>
+                    complete("User updated")
+                  }
+                }
+              } 
       }
     }
 }
