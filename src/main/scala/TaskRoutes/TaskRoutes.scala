@@ -47,5 +47,16 @@ class TaskRoutes(databaseService: DatabaseService)(implicit ec: ExecutionContext
               }
             }
         }
-    }
+    } ~
+      pathPrefix("users") {
+        pathEndOrSingleSlash {
+          post {
+            entity(as[User]) { user =>
+              onSuccess(databaseService.createUser(user)) { createdUser =>
+                complete(createdUser)
+              }
+            }
+          }
+        }
+      }
 }
