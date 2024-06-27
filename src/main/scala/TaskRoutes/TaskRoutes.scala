@@ -33,7 +33,14 @@ class TaskRoutes(databaseService: DatabaseService)(implicit ec: ExecutionContext
             rejectEmptyResponse {
               complete(databaseService.getTask(id))
             }
-          }
+          } ~
+            put {
+              entity(as[Task]) { task =>
+                onSuccess(databaseService.updateTask(task)) { _ =>
+                  complete("Task updated")
+                }
+              }
+            }
         }
     }
 }
