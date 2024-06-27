@@ -40,6 +40,11 @@ class TaskRoutes(databaseService: DatabaseService)(implicit ec: ExecutionContext
                   complete("Task updated")
                 }
               }
+            } ~
+            delete {
+              onSuccess(databaseService.deleteTask(id)) { _ =>
+                complete("Task deleted")
+              }
             }
         }
     }
