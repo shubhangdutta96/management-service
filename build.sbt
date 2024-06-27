@@ -4,8 +4,6 @@ ThisBuild / version := "0.1.0-SNAPSHOT"
 
 ThisBuild / scalaVersion := "3.3.3"
 
-val akkaVersion = "2.8.5"
-
 lazy val root = (project in file("."))
   .settings(
     name := "task-buddy",
@@ -19,13 +17,13 @@ lazy val root = (project in file("."))
       "com.typesafe.akka" %% "akka-http-testkit" % "10.5.3" % Test,
       "io.spray" %% "spray-json" % "1.3.6",
       "ch.qos.logback" % "logback-classic" % "1.5.6",
-      "com.typesafe.akka" %% "akka-actor-typed" % "2.8.5",
-      "com.typesafe.akka" %% "akka-stream" % "2.8.5",
+      "com.typesafe.akka" %% "akka-actor-typed" % "2.9.0-M2",
+      "com.typesafe.akka" %% "akka-stream" % "2.9.0-M2",
       "com.typesafe.scala-logging" %% "scala-logging" % "3.9.4",
       "org.flywaydb" % "flyway-core" % "7.7.0",
       "com.github.pureconfig" %% "pureconfig-enumeratum" % "0.17.6",
       "org.scalatest" %% "scalatest" % "3.2.18" % Test,
-      "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
+      "com.typesafe.akka" %% "akka-slf4j" % "2.9.0-M2",
       "org.scalatestplus" %% "mockito-3-4" % "3.2.9.0" % Test,
     )
   )
