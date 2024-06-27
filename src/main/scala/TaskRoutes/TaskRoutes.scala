@@ -57,6 +57,13 @@ class TaskRoutes(databaseService: DatabaseService)(implicit ec: ExecutionContext
               }
             }
           }
-        }
+        } ~
+          path(LongNumber) { id =>
+            get {
+              rejectEmptyResponse {
+                complete(databaseService.getUser(id))
+              }
+            }
       }
+    }
 }
