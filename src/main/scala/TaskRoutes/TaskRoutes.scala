@@ -70,7 +70,12 @@ class TaskRoutes(databaseService: DatabaseService)(implicit ec: ExecutionContext
                     complete("User updated")
                   }
                 }
-              } 
-      }
+              } ~
+              delete {
+                onSuccess(databaseService.deleteUser(id)) { _ =>
+                  complete("User deleted")
+                }
+              }
+        }
     }
 }
