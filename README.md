@@ -1,8 +1,8 @@
-# Task Buddy
+# Management service
 
 ## Overview
 
-This project is a task manager service built using Scala and Akka HTTP. It provides APIs for managing tasks and users.
+This project is a Task manager service built using Scala and Akka HTTP. It provides APIs for managing tasks and users.
 
 ## Project Structure
 
@@ -41,8 +41,8 @@ This project is a task manager service built using Scala and Akka HTTP. It provi
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your_username/task-management-service.git
-   cd task-management-service
+   git clone https://github.com/your_username/management-service.git
+   cd management-service
    ```
 
 2. **Set up the database**:
@@ -50,7 +50,7 @@ This project is a task manager service built using Scala and Akka HTTP. It provi
     - Create a PostgreSQL database manually. You can use the following command:
 
       ```bash
-      sudo -u postgres psql -c "CREATE DATABASE task_management_service;"
+      sudo -u postgres psql -c "CREATE DATABASE management_service;"
       ```
 
 
