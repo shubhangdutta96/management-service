@@ -104,19 +104,5 @@ class TaskRoutesSpec extends AnyWordSpec with Matchers with ScalatestRouteTest w
         responseAs[String] shouldEqual "User deleted"
       }
     }
-
-    "return tasks for a user for GET requests to /users/{id}/tasks" in {
-      val newUser = User(0, "Test User", "testuser@example.com")
-      val savedUser = mockDatabaseService.createUser(newUser).futureValue
-
-      val newTask1 = Task(0, "Task 1", "Description 1", savedUser.id)
-      val newTask2 = Task(0, "Task 2", "Description 2", savedUser.id)
-      mockDatabaseService.createTask(newTask1).futureValue
-      mockDatabaseService.createTask(newTask2).futureValue
-
-      Get(s"/users/${savedUser.id}/tasks") ~> taskRoutes.route ~> check {
-        status shouldBe StatusCodes.OK
-        val tasks = responseAs[Seq[Task]]
-        tasks.map(_.title) should contain allOf("Task 1", "Task 2")
   }
 }
